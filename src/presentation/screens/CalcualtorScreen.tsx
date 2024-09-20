@@ -8,6 +8,7 @@ const CalcualtorScreen = () => {
   const {
     number,
     prevNumber,
+    formula,
     buildNumber,
     clean,
     deleteOperation,
@@ -25,14 +26,16 @@ const CalcualtorScreen = () => {
           style={globalStyles.mainResult}
           adjustsFontSizeToFit
           numberOfLines={1}>
-          {number}
+          {formula}
         </Text>
-        <Text
-          style={globalStyles.subResult}
-          adjustsFontSizeToFit
-          numberOfLines={1}>
-          {prevNumber === '0' ? '' : prevNumber}
-        </Text>
+        {formula !== prevNumber && (
+          <Text
+            style={globalStyles.subResult}
+            adjustsFontSizeToFit
+            numberOfLines={1}>
+            {prevNumber === '0' ? '' : prevNumber}
+          </Text>
+        )}
       </View>
       <View style={globalStyles.row}>
         <CalculatorButton
